@@ -2,21 +2,20 @@ const form = document.getElementById('registration-form');
 
 form.addEventListener('submit', (e) => {
 
-    let success=true;
-    success= emailFunction() && success;
-    success= passwordFunction() && success;
-    success= reFunction() && success;
-    success= nameFunction() && success;
-    success= malefemalefunction() && success;
-    success= countryFunction() && success;
-    success= termsFunction() && success;
-
-    if (success){
-        form.submit();
-    } else{
+    if ([emailFunction, 
+     passwordFunction, 
+     reFunction, 
+     nameFunction, 
+     malefemalefunction, 
+     countryFunction, 
+     termsFunction]
+     
+    .map(fn => fn())
+    .every(Boolean)) {
+            form.submit();
+    } else {
         e.preventDefault();
     }
-
 });
 
 // email 
@@ -34,7 +33,7 @@ function emailFunction() {
 }
 
 // password 
-function passwordFunction() {;  
+function passwordFunction() {
   const passwordInput = document.getElementById('password').value;
   const passwordMessage = document.getElementById('password-message');
 
@@ -53,7 +52,7 @@ function reFunction() {
   const passwordInputConfirm = document.getElementById('repassword').value;
   const passwordConfirmMessage = document.getElementById('repassword-message');
 
-  if (passwordInput !== passwordInputConfirm && passwordInput === "") { 
+  if (passwordInput !== passwordInputConfirm || passwordInput === "") { 
         passwordConfirmMessage.textContent = "Passwords do not match!";
   } else {
         passwordConfirmMessage.textContent = "";
@@ -69,7 +68,7 @@ function nameFunction() {
 
     const nameRegex = /^[A-Za-z]+$/;
 
-    if (!nameRegex.test(fNameInput) && !nameRegex.test(lNameInput)) {
+    if (!nameRegex.test(fNameInput) || !nameRegex.test(lNameInput)) {
         nameMessage.textContent = "Name cannot be empty or have a Number!";
     } else {
         nameMessage.textContent = "";
@@ -113,15 +112,3 @@ function termsFunction() {
         return true;
     }
 }
-
-
-document.getElementById('autofill').addEventListener('click', () => {
-    document.getElementById('email').value = "Darshan@gmail.com";
-    document.getElementById('password').value = "Darshan@123";
-    document.getElementById('repassword').value = "Darshan@123";
-    document.getElementById('fname').value = "Darshan";
-    document.getElementById('lname').value = "Patel";
-    document.getElementById('male').checked = true;
-    document.querySelector('select').value = "India";
-    document.getElementById('option1').checked = true;
-});
