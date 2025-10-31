@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+<section class="form-section">
+    <div class="container border border-5 mt-5 p-5 w-50">
+        <h2 class="d-flex justify-content-center mb-5"> Registration Form</h2>
+       
+        <form id="registration-form" action="#" method="post">
+
+            <!-- Email -->
+            <div class="input-group mb-3">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input id="email" type="email" class="form-control" name="email" placeholder="Email" onkeyup="emailFunction()">
+            </div>
+             <p id="email-message" class="text-danger"></p>
+
+            <!-- Password  -->
+            <div class="input-group mb-3">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password" onkeyup="passwordFunction()">
+            </div>
+             <p id="password-message" class="text-danger"></p>
+
+            <!-- confirm passowrd  -->
+            <div class="input-group mb-3">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="repassword" type="password" class="form-control" name="repassword" placeholder="Re-type Password" onkeyup="reFunction()">
+            </div>
+            <p id="repassword-message" class="text-danger"></p>
+
+            <!-- Name -->
+            <div class="mb-3 d-flex gap-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="fname" type="text" class="form-control" name="fname" placeholder="First Name" onkeyup="nameFunction()">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="lname" type="text" class="form-control" name="lname" placeholder="Last Name" onkeyup="nameFunction()">
+                </div>
+            </div>
+            <p id="name-msg" class="text-danger"></p>
+
+            <!-- Male Female Radio Button  -->
+            <div class="d-flex gap-3 mb-3">
+                <input type="radio" class="form-check-input" id="male" name="optradio" value="male" onchange="malefemalefunction()">Male
+                <label class="form-check-label" for="male"></label>
+                <input type="radio" class="form-check-input" id="female" name="optradio" value="female" onchange="malefemaleFunction()">Female
+                <label class="form-check-label" for="female"></label>
+            </div>
+            <p id="malefemale-msg" class="text-danger"></p>
+
+            <!-- country Dropdown  -->
+             
+            <select class="form-select mb-3 fs-4" aria-label="Countryselector" id="country" name="country" onchange="countryFunction()">
+                <option value = "0" selected disabled>Select a country</option>
+                <option value="India">India</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Australia">Australia</option>
+            </select>
+            <p id="country-msg" class="text-danger"></p>
+
+            <!-- Terms and condition checkbox -->
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="option1" name="option1" value="something" onchange="termsFunction()">
+                <label class="form-check-label" for="option1">I agree with terms and conditions</label>
+            </div>
+            <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="option2" name="option2" value="something">
+                <label class="form-check-label" for="option2">I want to Receive the news letter</label>
+            </div>
+
+            <p id="terms-msg" class="text-danger"></p>
+            
+            <!-- register button -->
+            <div class="d-grid gap-2">
+                <button type="submit" id="register" class="btn btn-warning">Register</button>
+            </div>
+        </form>
+    </div>
+</section>
+    
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
